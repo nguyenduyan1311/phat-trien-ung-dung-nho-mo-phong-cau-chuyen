@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="Fruit.js"></script>
+    <script src="Human.js"></script>
+</head>
+<style>
+    div {
+        display: inline-block;
+        border: 1px solid;
+        padding: 20px;
+    }
+</style>
+<body>
+<div class="human1">
+    <p id="human-name1"></p>
+    <p id="human-gender1"></p>
+    <p id="human-weight1"></p>
+</div>
+
+<div class="fruit">
+    <p id="fruit-name"></p>
+    <p id="fruit-weight"></p>
+</div>
+
+<div class="human2">
+    <p id="human-name2"></p>
+    <p id="human-gender2"></p>
+    <p id="human-weight2"></p>
+</div>
+
+<br>
+<button onclick="eat(adam,apple)">Adam Eat</button>
+<button onclick="eat(eva,apple)">Eva Eat</button>
+<script>
+    let adam = new Human("Adam",'Male',60);
+    let eva = new Human("Eva",'Female',50);
+    let apple = new Fruit("Apple",20);
+
+    function displayHuman(human,id) {
+        document.getElementById('human-name'+id).innerHTML = human.name;
+        document.getElementById('human-gender'+id).innerHTML = human.gender;
+        document.getElementById('human-weight'+id).innerHTML = human.weight;
+    }
+
+    function displayFruit(fruit) {
+        document.getElementById('fruit-name').innerHTML = fruit.name;
+        document.getElementById('fruit-weight').innerHTML = fruit.weight;
+    }
+
+    function displayAll() {
+        displayHuman(adam,1);
+        displayHuman(eva,2);
+        displayFruit(apple);
+    }
+
+    function eat(human,fruit) {
+        let num = 1;
+        human.eat(fruit,num);
+        displayAll();
+    }
+    displayAll();
+
+</script>
+</body>
+</html>
